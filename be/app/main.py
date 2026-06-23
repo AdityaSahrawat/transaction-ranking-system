@@ -1,6 +1,7 @@
-from fastapi import FastAPI
-from fastapi import Depends
-from fastapi import HTTPException
+from fastapi import FastAPI, Request, Depends, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
+from slowapi.errors import RateLimitExceeded
+from slowapi import _rate_limit_exceeded_handler
 
 from sqlalchemy.orm import Session
 
@@ -24,7 +25,16 @@ app = FastAPI(
     title="Transaction Ranking API"
 )
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=False,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 app.state.limiter = limiter
+app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
 
 @app.get("/")
 def root():
@@ -36,6 +46,7 @@ def root():
 @app.post("/transaction")
 @limiter.limit("10/minute")
 def create_transaction_endpoint(
+    request: Request,
     payload: TransactionCreate,
     db: Session = Depends(get_db),
 ):
