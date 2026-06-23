@@ -9,6 +9,9 @@ import Pagination from "../components/Pagination";
 import { getRanking, RankingItem, UserSummary } from "../services/api";
 
 export default function Home() {
+  const appEnv = process.env.NEXT_PUBLIC_APP_ENV;
+  const isProd = appEnv === "prod" || appEnv === "production";
+
   const [rankings, setRankings] = useState<RankingItem[]>([]);
   const [summary, setSummary] = useState<UserSummary | null>(null);
   const [currentPage, setCurrentPage] = useState(1);
@@ -58,6 +61,12 @@ export default function Home() {
             Real-time transaction tracking, priority ranking, and rate-limited abuse prevention dashboard.
           </p>
         </header>
+
+        {isProd && (
+          <div className="bg-red-950/40 border border-red-850 text-red-400 px-4 py-3 rounded-xl text-sm font-medium">
+            make sure be is running in https://tr-ranking-sys.onrender.com/ for smooth experience
+          </div>
+        )}
 
         {/* Grid Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
