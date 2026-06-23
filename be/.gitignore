@@ -1,0 +1,27 @@
+# Python bytecode
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Environments and Virtualenvs
+.venv/
+venv/
+env/
+ENV/
+
+# Local configuration files
+.env
+
+# Testing and coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Mypy and IDE configurations
+.mypy_cache/
+.vscode/
+.idea/
+
+# OS metadata
+.DS_Store
