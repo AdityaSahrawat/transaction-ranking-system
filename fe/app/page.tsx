@@ -64,7 +64,7 @@ export default function Home() {
 
         {isProd && (
           <div className="bg-red-950/40 border border-red-850 text-red-400 px-4 py-3 rounded-xl text-sm font-medium">
-            make sure be is running in https://tr-ranking-sys.onrender.com/health for smooth experience
+            make sure be is running in https://tr-ranking-sys.onrender.com for smooth experience
           </div>
         )}
 
