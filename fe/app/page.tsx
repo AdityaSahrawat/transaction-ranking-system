@@ -51,7 +51,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-slate-950 text-slate-100 py-10 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto space-y-8">
-        
+
         {/* Header */}
         <header className="border-b border-slate-800 pb-6">
           <h1 className="text-3xl font-extrabold text-white tracking-tight sm:text-4xl">
@@ -64,13 +64,13 @@ export default function Home() {
 
         {isProd && (
           <div className="bg-red-950/40 border border-red-850 text-red-400 px-4 py-3 rounded-xl text-sm font-medium">
-            make sure be is running in https://tr-ranking-sys.onrender.com/ for smooth experience
+            make sure be is running in https://tr-ranking-sys.onrender.com/health for smooth experience
           </div>
         )}
 
         {/* Grid Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          
+
           {/* Left Column: Transaction Creation and Summary */}
           <div className="lg:col-span-5 space-y-8">
             <section>
